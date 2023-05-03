@@ -8,15 +8,18 @@ use Faker\Factory as Faker;
 
 class ProjectSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 25; $i++) {
-            projects::table('projects')->insert([
+        for ($i = 0; $i < 10; $i++) {
+            \DB::table('projects')->insert([
                 'name' => $faker->sentence(3),
                 'description' => $faker->paragraph(),
             ]);
-        }
     }
+}
 }
